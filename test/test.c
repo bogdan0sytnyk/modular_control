@@ -3,18 +3,18 @@
 #include <stdio.h>
 #include "lib.h"
 
-START_TEST(test_calculator)
+START_TEST(test_counter)
 {
     char expression1[] = "3+5*2-67*3";
-    int result1 = calculator(expression1);
+    int result1 = counter(expression1);
     ck_assert_int_eq(result1, -388);
 
     char expression2[] = "10+20/5";
-    int result2 = calculator(expression2);
+    int result2 = counter(expression2);
     ck_assert_int_eq(result2, 14);
 
     char expression3[] = "2^3+4";
-    int result3 = calculator(expression3);
+    int result3 = counter(expression3);
     ck_assert_int_eq(result3, 12);
 
 }
@@ -37,18 +37,18 @@ START_TEST(test_exponent)
 }
 END_TEST
 
-START_TEST(test_priority)
+START_TEST(test_precedency)
 {
     char operator1 = '+';
-    int result1 = priority(operator1);
+    int result1 = precedency(operator1);
     ck_assert_int_eq(result1, 1);
 
     char operator2 = '*';
-    int result2 = priority(operator2);
+    int result2 = precedency(operator2);
     ck_assert_int_eq(result2, 2);
 
     char operator3 = '^';
-    int result3 = priority(operator3);
+    int result3 = precedency(operator3);
     ck_assert_int_eq(result3, 3);
 
 }
@@ -56,10 +56,10 @@ END_TEST
 
 int main(void)
 	{
-		Suite *s = suite_create("calculator");
+		Suite *s = suite_create("counter");
 		TCase *tc_core = tcase_create("Core");
 
-        tcase_add_test(tc_core, test_calculator);
+        tcase_add_test(tc_core, test_counter);
 		suite_add_tcase(s, tc_core);
 
         tcase_add_test(tc_core, test_exponent);

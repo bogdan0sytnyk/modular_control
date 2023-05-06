@@ -13,7 +13,7 @@
  * @param expression Рядок, що містить математичний вираз.
  * @return Результат обчислення виразу.
  */
-int calculator(char *expression);
+int counter(char *expression);
 
 /**
  * @brief Виконує операцію над двома числами.
@@ -39,4 +39,4 @@ void exponent(int *numStack, char *opStack, int *numTop, int *opTop);
  * @param numTop Вказівник на змінну, що вказує на вершину числового стеку.
  * @param opTop Вказівник на змінну, що вказує на вершину операторного стеку.
  */
-int priority(char operator);
+int precedency(char operator);

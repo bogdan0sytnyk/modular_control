@@ -6,7 +6,7 @@ int main() {
     printf("Введіть математичний вираз: ");
     scanf("%s", expression);
 
-    int result = calculator(expression);
+    int result = counter(expression);
 
     printf("Результат: %d\n", result);
 

@@ -1,6 +1,6 @@
 #include "lib.h"
 
-int calculator(char *expression) {
+int counter(char *expression) {
     int numStack[100];
     char opStack[100];
     int numTop = -1;
@@ -30,7 +30,7 @@ int calculator(char *expression) {
             i++;
         } else if (expression[i] == '+' || expression[i] == '-' || expression[i] == '*' || expression[i] == '/' ||
                    expression[i] == '%' || expression[i] == '^') {
-            while (opTop >= 0 && opStack[opTop] != '(' && priority(expression[i]) <= priority(opStack[opTop])) {
+            while (opTop >= 0 && opStack[opTop] != '(' && precedency(expression[i]) <= precedency(opStack[opTop])) {
                 exponent(numStack, opStack, &numTop, &opTop);
             }
 
@@ -80,7 +80,7 @@ void exponent(int *numStack, char *opStack, int *numTop, int *opTop) {
     numStack[++(*numTop)] = partialResult;
 }
 
-int priority(char operator) {
+int precedency(char operator) {
     switch (operator) {
         case '^':
             return 3;
